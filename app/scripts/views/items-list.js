@@ -29,17 +29,18 @@
       var renderedContent = '';
       for(var i=0; i < this.collection.length; i++){
 
-        renderedContent += this.template({thing: this.collection.models[i].thing});
+        var item = this.collection.models[i];
+        renderedContent += this.template({thing: item.attributes.thing});
       };
 
       $(this.el).html(renderedContent);
     },
-    
+
     unrender: function(){
       $(this.el).remove();
     },
     
-    remove: function(){
+  remove: function(){
       this.model.destroy();
     }
   });
