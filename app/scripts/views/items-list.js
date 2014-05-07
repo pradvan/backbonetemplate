@@ -6,7 +6,10 @@
 
     el: '#content-box',
 
-    template: this.JST['app/scripts/templates/items-list.ejs'],
+    t_header: this.JST['app/scripts/templates/header.ejs'],
+    t_footer: this.JST['app/scripts/templates/footer.ejs'],
+    t_nav: this.JST['app/scripts/templates/nav-list.ejs'],
+    t_list: this.JST['app/scripts/templates/items-list.ejs'],
 
     events: {
       'click span.delete': 'remove'
@@ -25,13 +28,18 @@
     },
 
     render: function(){
-      console.log('render')
       var renderedContent = '';
+
+      renderedContent += this.t_header();
+      renderedContent += this.t_nav();
+
       for(var i=0; i < this.collection.length; i++){
 
         var item = this.collection.models[i];
-        renderedContent += this.template({thing: item.attributes.thing});
+        renderedContent += this.t_list({thing: item.attributes.thing});
       };
+
+      renderedContent += this.t_footer();
 
       $(this.el).html(renderedContent);
     },
