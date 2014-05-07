@@ -1,5 +1,5 @@
 /*global BackboneTemplate, $*/
-
+(function($){
     'use strict';
 
     BackboneTemplate.Models.Item = Backbone.Model.extend({
@@ -7,4 +7,4 @@
             thing: 'awesome'
         },
     });
-
+})(jQuery);

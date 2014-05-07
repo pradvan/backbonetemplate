@@ -6,14 +6,17 @@
 
     el: '#content-box',
 
-    // `ItemView`s now respond to two clickable actions for each `Item`: swap and delete.
+    template: this.JST['app/scripts/templates/items-list.ejs'],
+
     events: {
       'click span.delete': 'remove'
     },
-    // `initialize()` now binds model change/removal to the corresponding handlers below.
+    
     initialize: function(){
       console.log('init')
-      _.bindAll(this, 'render', 'unrender', 'remove'); // every function that uses 'this' as the current object should be in here
+
+      // every function that uses 'this' as the current object should be in here
+      _.bindAll(this, 'render', 'unrender', 'remove');
 
       this.collection.bind('add', this.render);
       this.collection.bind('remove', this.unrender);
@@ -25,20 +28,19 @@
       console.log('render')
       var renderedContent = '';
       for(var i=0; i < this.collection.length; i++){
-        var item = this.collection.models[i];
 
-        renderedContent += item.attributes.thing + "</br>";
+        renderedContent += this.template({thing: this.collection.models[i].thing});
       };
 
       $(this.el).html(renderedContent);
     },
-    // `unrender()`: Makes Model remove itself from the DOM.
+    
     unrender: function(){
       $(this.el).remove();
     },
-    // `remove()`: We use the method `destroy()` to remove a model from its collection. Normally this would also delete the record from its persistent storage, but we have overridden that (see above).
+    
     remove: function(){
       this.model.destroy();
     }
   });
-})(jQuery); 
+})(jQuery);

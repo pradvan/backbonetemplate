@@ -1,5 +1,5 @@
 /*global BackboneTemplate, $*/
-
+(function($){
     'use strict';
 
     BackboneTemplate.Collections.ItemsList = Backbone.Collection.extend({
@@ -12,3 +12,4 @@
 			})
 		}
     });
+})(jQuery); 

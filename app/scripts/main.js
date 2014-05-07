@@ -5,6 +5,9 @@ BackboneTemplate = {
     Models: {},
     Collections: {},
     Views: {},
+    Routers: {},
+
+    collection: null,
 
     init: function () {
         'use strict';
@@ -14,8 +17,8 @@ BackboneTemplate = {
         var item2 = new BackboneTemplate.Models.Item({thing:'awesome'});
         var item3 = new BackboneTemplate.Models.Item({thing:'very awesome!'});
 
-        var collection = new BackboneTemplate.Collections.ItemsList([item, item2, item3]);
-        BackboneTemplate.itemsList = new BackboneTemplate.Views.ItemsList({collection: collection});
+        this.collection = new BackboneTemplate.Collections.ItemsList([item, item2, item3]);
+        BackboneTemplate.itemsList = new BackboneTemplate.Views.ItemsList({collection: this.collection});
     }
 };
 
