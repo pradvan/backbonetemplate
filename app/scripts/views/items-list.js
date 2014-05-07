@@ -20,14 +20,17 @@
 
       // every function that uses 'this' as the current object should be in here
       _.bindAll(this, 'render', 'unrender', 'remove');
-
+      
       this.collection.bind('add', this.render);
       this.collection.bind('remove', this.unrender);
+
+      this.collection.on("change:thing", this.render, this);
 
       this.render();
     },
 
     render: function(){
+      console.log('render')
       var renderedContent = '';
 
       renderedContent += this.t_header();
@@ -45,11 +48,12 @@
     },
 
     unrender: function(){
+      console.log('unrender')
       $(this.el).remove();
     },
-    
-  remove: function(){
-      this.model.destroy();
+
+    remove: function(){
+      console.log('remove');
     }
   });
 })(jQuery);
