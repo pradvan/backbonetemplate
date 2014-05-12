@@ -13,7 +13,7 @@ BackboneTemplate = {
         'use strict';
         console.log('Init BackboneTemplate');
 
-        var item = new BackboneTemplate.Models.Item({thing:'not awesome!'});
+        var item = new BackboneTemplate.Models.Item({thing:'great!'});
         var item2 = new BackboneTemplate.Models.Item({thing:'awesome'});
         var item3 = new BackboneTemplate.Models.Item({thing:'very awesome!'});
 

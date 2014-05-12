@@ -6,9 +6,13 @@
 
     el: '#content-box',
 
+    defaults: {
+      viewRendered: false
+    },
+
     t_header: this.JST['app/scripts/templates/header.ejs'],
     t_footer: this.JST['app/scripts/templates/footer.ejs'],
-    t_nav: this.JST['app/scripts/templates/nav-list.ejs'],
+    t_new: this.JST['app/scripts/templates/new-item.ejs'],
     t_list: this.JST['app/scripts/templates/items-list.ejs'],
 
     events: {
@@ -16,7 +20,7 @@
     },
     
     initialize: function(){
-      console.log('init')
+      console.log('init');
 
       // every function that uses 'this' as the current object should be in here
       _.bindAll(this, 'render', 'unrender', 'remove');
@@ -30,14 +34,17 @@
     },
 
     render: function(){
-      console.log('render')
+      console.log('render');
+
+      if(this.viewRendered){
+        this.unrender();
+      }
       var renderedContent = '';
 
       renderedContent += this.t_header();
-      renderedContent += this.t_nav();
+      renderedContent += this.t_new();
 
       for(var i=0; i < this.collection.length; i++){
-
         var item = this.collection.models[i];
         renderedContent += this.t_list({thing: item.attributes.thing});
       };
@@ -45,15 +52,19 @@
       renderedContent += this.t_footer();
 
       $(this.el).html(renderedContent);
+
+      this.viewRendered = true;
     },
 
     unrender: function(){
       console.log('unrender')
       $(this.el).remove();
+      this.viewRendered = true;
     },
 
-    remove: function(){
+    remove: function(e){
       console.log('remove');
+      console.log(e);
     }
   });
 })(jQuery);
