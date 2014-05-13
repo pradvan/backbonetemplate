@@ -7,9 +7,11 @@
         model: BackboneTemplate.Models.Item,
 
 		initialize: function(){
+			/*
 			this.bind("add", function( model ){
 				view.render( model );
 			})
+			*/
 		}
     });
 })(jQuery); 

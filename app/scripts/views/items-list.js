@@ -16,7 +16,8 @@
     t_list: this.JST['app/scripts/templates/items-list.ejs'],
 
     events: {
-      'click span.delete': 'remove'
+      'click span.delete': 'remove',
+      'click #addItem': 'newItem'
     },
     
     initialize: function(){
@@ -39,6 +40,7 @@
       if(this.viewRendered){
         this.unrender();
       }
+
       var renderedContent = '';
 
       renderedContent += this.t_header();
@@ -56,10 +58,15 @@
       this.viewRendered = true;
     },
 
+    newItem:function (){
+      console.log('newItem');
+      this.collection.add(new BackboneTemplate.Models.Item({thing: $("#itemName").val()}));
+    },
+
     unrender: function(){
-      console.log('unrender')
-      $(this.el).remove();
-      this.viewRendered = true;
+      console.log('unrender');
+      //$(this.el).remove();
+      this.viewRendered = false;
     },
 
     remove: function(e){
