@@ -72,6 +72,10 @@
     remove: function(e){
       console.log('remove');
       console.log(e);
+
+      //var id = $(e.currentTarget).data("id");
+      //var item = this.collection.get(id);
+
     }
   });
 })(jQuery);
