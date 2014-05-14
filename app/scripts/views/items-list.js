@@ -29,7 +29,7 @@
       this.collection.bind('add', this.render);
       this.collection.bind('remove', this.unrender);
 
-      this.collection.on("change:thing", this.render, this);
+      //this.collection.on("change:thing", this.render, this);
 
       this.render();
     },
@@ -59,13 +59,11 @@
     },
 
     newItem:function (){
-      console.log('newItem');
       this.collection.add(new BackboneTemplate.Models.Item({thing: $("#itemName").val()}));
     },
 
     unrender: function(){
-      console.log('unrender');
-      //$(this.el).remove();
+      $(this.el).empty();
       this.viewRendered = false;
     },
 
@@ -75,7 +73,6 @@
 
       //var id = $(e.currentTarget).data("id");
       //var item = this.collection.get(id);
-
     }
   });
 })(jQuery);
