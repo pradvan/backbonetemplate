@@ -15,6 +15,7 @@
     render: function(){
         var html = this.template(this.model.toJSON());
         $(this.el).append(html);
+        console.log("!");
     }  
   });
 })(jQuery);

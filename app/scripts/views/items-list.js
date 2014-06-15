@@ -16,7 +16,7 @@
     t_list: this.JST['app/scripts/templates/items-list.ejs'],
 
     events: {
-      'click span.delete': 'remove',
+      'click .delete': 'remove',
       'click #addItem': 'newItem'
     },
     
@@ -48,7 +48,7 @@
 
       for(var i=0; i < this.collection.length; i++){
         var item = this.collection.models[i];
-        renderedContent += this.t_list({thing: item.attributes.thing});
+        renderedContent += this.t_list({id: item.cid, thing: item.attributes.thing});
       };
 
       renderedContent += this.t_footer();
@@ -72,8 +72,10 @@
       console.log('remove');
       console.log(e);
 
-      //var id = $(e.currentTarget).data("id");
+      var id = $(e.currentTarget).data("id");
       //var item = this.collection.get(id);
+
+       console.log("id: " + id);
     }
   });
 })(jQuery);

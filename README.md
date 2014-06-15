@@ -10,10 +10,9 @@ Sample Backbone app
 3. init project (run in project folder, one at a time):
 
 	nmp install
+
 	bower install
+
 	grunt build
-	grunt server
 
-4. ???
-
-5. Profit
+4. grunt server
