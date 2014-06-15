@@ -58,7 +58,8 @@
       this.viewRendered = true;
     },
 
-    newItem:function (){
+    newItem:function (event){
+      event.preventDefault();
       this.collection.add(new BackboneTemplate.Models.Item({thing: $("#itemName").val()}));
     },
 
