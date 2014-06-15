@@ -27,16 +27,13 @@
       _.bindAll(this, 'render', 'unrender', 'remove');
       
       this.collection.bind('add', this.render);
-      this.collection.bind('remove', this.unrender);
+      this.collection.bind('remove', this.render);
 
       //this.collection.on("change:thing", this.render, this);
-
       this.render();
     },
 
     render: function(){
-      console.log('render');
-
       if(this.viewRendered){
         this.unrender();
       }
@@ -69,13 +66,9 @@
     },
 
     remove: function(e){
-      console.log('remove');
-      console.log(e);
-
       var id = $(e.currentTarget).data("id");
-      //var item = this.collection.get(id);
-
-       console.log("id: " + id);
+      var item = this.collection.get(id);
+      this.collection.remove(item);
     }
   });
 })(jQuery);
