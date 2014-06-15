@@ -29,7 +29,6 @@
       this.collection.bind('add', this.render);
       this.collection.bind('remove', this.render);
 
-      //this.collection.on("change:thing", this.render, this);
       this.render();
     },
 
@@ -40,17 +39,18 @@
 
       var renderedContent = '';
 
-      renderedContent += this.t_header();
-      renderedContent += this.t_new();
-
+      this.$el.append(this.t_header());
+      this.$el.append(this.t_new());
+      /*
       for(var i=0; i < this.collection.length; i++){
         var item = this.collection.models[i];
         renderedContent += this.t_list({id: item.cid, thing: item.attributes.thing});
-      };
+      };      
+      */
 
-      renderedContent += this.t_footer();
+      this.collection.each(this.renderItem, this);
 
-      $(this.el).html(renderedContent);
+      this.$el.append(this.t_footer());
 
       this.viewRendered = true;
     },
@@ -63,6 +63,13 @@
     unrender: function(){
       $(this.el).empty();
       this.viewRendered = false;
+    },
+
+    renderItem: function (item) {
+        this.$el.append(new BackboneTemplate.Views.Item({
+            tagName: 'div',
+            model: item
+        }).el);
     },
 
     remove: function(e){

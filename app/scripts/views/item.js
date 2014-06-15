@@ -3,19 +3,13 @@
 (function($){
 
   BackboneTemplate.Views.Item = Backbone.View.extend({
-
-    el: 'div',
-
-    template: this.JST['app/scripts/templates/item.js'],
-
-    events: {
-      //'click span.delete': 'remove'
+ 
+    initialize: function () {
+        this.render();
     },
-
-    render: function(){
-        var html = this.template(this.model.toJSON());
-        $(this.el).append(html);
-        console.log("!");
-    }  
+ 
+    render: function () {
+        this.$el.html(JST['app/scripts/templates/item.ejs'](this.model));
+    }
   });
 })(jQuery);
