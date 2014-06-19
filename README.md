@@ -1,5 +1,4 @@
 #BackboneTemplate#
-================
 Sample Backbone app that renders items in a collection and allows to add and remove items.
 
 
