@@ -1,18 +1,15 @@
-BackboneTemplate
+#BackboneTemplate#
 ================
+Sample Backbone app that renders items in a collection and allows to add and remove items.
 
-Sample Backbone app
 
-1. Make sure Node.js is installed and is in the PATH
+##Installation##
+Make sure Node.js is installed on your system and that it is in the PATH. Clone project and run the following one at a time:
 
-2. git clone
+nmp install
 
-3. init project (run in project folder, one at a time):
+bower install
 
-	nmp install
+grunt build
 
-	bower install
-
-	grunt build
-
-4. grunt server
+grunt serve
