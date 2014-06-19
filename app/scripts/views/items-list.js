@@ -4,16 +4,15 @@
 
   BackboneTemplate.Views.ItemsList = Backbone.View.extend({
 
-    el: '#content-box',
+    el: '#BTapp',
 
     defaults: {
-      viewRendered: false
+      
     },
 
     t_header: this.JST['app/scripts/templates/header.ejs'],
     t_footer: this.JST['app/scripts/templates/footer.ejs'],
     t_new: this.JST['app/scripts/templates/new-item.ejs'],
-    t_list: this.JST['app/scripts/templates/items-list.ejs'],
 
     events: {
       'click .delete': 'remove',
@@ -33,36 +32,29 @@
     },
 
     render: function(){
-      if(this.viewRendered){
-        this.unrender();
-      }
-
-      var renderedContent = '';
+      console.log('render');
+      
+      this.unrender();
 
       this.$el.append(this.t_header());
       this.$el.append(this.t_new());
-      /*
-      for(var i=0; i < this.collection.length; i++){
-        var item = this.collection.models[i];
-        renderedContent += this.t_list({id: item.cid, thing: item.attributes.thing});
-      };      
-      */
 
       this.collection.each(this.renderItem, this);
 
       this.$el.append(this.t_footer());
-
-      this.viewRendered = true;
     },
 
     newItem:function (event){
       event.preventDefault();
-      this.collection.add(new BackboneTemplate.Models.Item({thing: $("#itemName").val()}));
+      var name = $("#itemName").val();
+      if(name == ""){
+        name = "Empty";
+      }
+      this.collection.add(new BackboneTemplate.Models.Item({thing: name}));
     },
-
+    
     unrender: function(){
       $(this.el).empty();
-      this.viewRendered = false;
     },
 
     renderItem: function (item) {
