@@ -6,7 +6,6 @@ Sample Backbone app that renders items in a collection and allows to add and rem
 - Backbone
 - jQuery
 - Bootstrap
-- Handlebars
 - SASS
 - jQuery.address
 
@@ -15,14 +14,14 @@ Bower for dependency management
 Grunt for automatic functionality
 - JSHint
 - JS & CSS minification
-- Compass
+- JST
 - JS uglify
 - Image minification
 - SVG minification
 - HTML minification
 - Concatanation
 - Local Server
-- Live reload
+- Watch/Live reload
 
 ##Installation##
 Make sure Node.js is installed on your system and that it is in the PATH. Clone project and run the following one at a time:
