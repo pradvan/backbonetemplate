@@ -11,7 +11,8 @@ Sample Backbone app that renders items in a collection and allows to add and rem
 
 ###Tools###
 Bower for dependency management
-Grunt for automatic functionality
+
+Grunt for automation:
 - JSHint
 - JS & CSS minification
 - JST
