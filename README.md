@@ -1,15 +1,33 @@
 #BackboneTemplate#
-================
 Sample Backbone app that renders items in a collection and allows to add and remove items.
 
+##Technology stack##
+###Libraries###
+- Backbone
+- jQuery
+- Bootstrap
+- Handlebars
+- SASS
+- jQuery.address
+
+###Tools###
+Bower for dependency management
+Grunt for automatic functionality
+- JSHint
+- JS & CSS minification
+- Compass
+- JS uglify
+- Image minification
+- SVG minification
+- HTML minification
+- Concatanation
+- Local Server
+- Live reload
 
 ##Installation##
 Make sure Node.js is installed on your system and that it is in the PATH. Clone project and run the following one at a time:
 
-nmp install
-
-bower install
-
-grunt build
-
-grunt serve
+1. npm install
+2. bower install
+3. grunt build
+4. grunt serve
