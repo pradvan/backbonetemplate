@@ -25,7 +25,9 @@ Grunt for automation:
 - Watch/Live reload
 
 ##Installation##
-Make sure Node.js is installed on your system and that it is in the PATH. Clone project and run the following one at a time:
+Make sure Node.js is installed on your system and that it is in the PATH. 
+Rails and Compass (http://railsinstaller.org/)
+http://railsinstaller.org/Clone project and run the following one at a time:
 
 1. npm install
 2. bower install
