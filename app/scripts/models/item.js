@@ -4,7 +4,7 @@
 
     BackboneTemplate.Models.Item = Backbone.Model.extend({
         defaults: { 
-            thing: 'default'
+            thing: 'empty'
         },
     });
 })(jQuery);

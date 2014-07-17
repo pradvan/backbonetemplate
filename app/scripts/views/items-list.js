@@ -23,11 +23,11 @@
       console.log('init');
 
       // every function that uses 'this' as the current object should be in here
-      _.bindAll(this, 'render', 'unrender', 'remove');
+      _.bindAll(this, 'render', 'rerender', 'unrender', 'remove');
 
       this.collection = new BackboneTemplate.Collections.ItemsList();
       this.collection.bind('add', this.renderItem);
-      //this.collection.bind('remove', this.renderItem);
+      this.collection.bind('remove', this.rerender);
 
       this.render();
 
@@ -46,6 +46,18 @@
       this.$el.append(this.t_header());
       this.$el.append(this.t_new());
       this.$el.append(this.t_item_list());
+      this.$el.append(this.t_footer());
+    },
+
+    rerender: function(){
+      console.log('rerender');
+      
+      this.unrender();
+
+      this.$el.append(this.t_header());
+      this.$el.append(this.t_new());
+      this.$el.append(this.t_item_list());
+      this.collection.each(this.renderItem, this);
       this.$el.append(this.t_footer());
     },
 
