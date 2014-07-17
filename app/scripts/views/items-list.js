@@ -72,6 +72,7 @@
     newItem:function (event){
       event.preventDefault();
       var name = $("#itemName").val();
+      $("#itemName").val('');
       if(name == ""){
         name = "Empty";
       }
