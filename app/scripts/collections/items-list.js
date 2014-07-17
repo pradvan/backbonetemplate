@@ -5,6 +5,7 @@
     BackboneTemplate.Collections.ItemsList = Backbone.Collection.extend({
 
         model: BackboneTemplate.Models.Item,
+        url: 'data.json',
 
 		initialize: function(){
 			/*

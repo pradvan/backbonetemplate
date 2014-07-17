@@ -7,12 +7,12 @@
     el: '#BTapp',
 
     defaults: {
-      
     },
 
     t_header: this.JST['app/scripts/templates/header.ejs'],
     t_footer: this.JST['app/scripts/templates/footer.ejs'],
     t_new: this.JST['app/scripts/templates/new-item.ejs'],
+    t_item_list: this.JST['app/scripts/templates/item-list.ejs'],
 
     events: {
       'click .delete': 'remove',
@@ -24,11 +24,18 @@
 
       // every function that uses 'this' as the current object should be in here
       _.bindAll(this, 'render', 'unrender', 'remove');
-      
-      this.collection.bind('add', this.render);
-      this.collection.bind('remove', this.render);
+
+      this.collection = new BackboneTemplate.Collections.ItemsList();
+      this.collection.bind('add', this.renderItem);
+      //this.collection.bind('remove', this.renderItem);
 
       this.render();
+
+      this.collection.fetch({
+        add: true,
+        success: this.loadCompleteHandler,
+        error: this.errorHandler
+      });
     },
 
     render: function(){
@@ -38,10 +45,16 @@
 
       this.$el.append(this.t_header());
       this.$el.append(this.t_new());
-
-      this.collection.each(this.renderItem, this);
-
+      this.$el.append(this.t_item_list());
       this.$el.append(this.t_footer());
+    },
+
+    loadCompleteHandler : function(event){
+      console.log('loadCompleteHandler');
+    },
+
+    errorHandler : function(event){
+      throw "Error loading JSON";
     },
 
     newItem:function (event){
@@ -58,7 +71,8 @@
     },
 
     renderItem: function (item) {
-        this.$el.append(new BackboneTemplate.Views.Item({
+      console.log('renderItem');
+      $('#item-list-container').append(new BackboneTemplate.Views.Item({
             tagName: 'div',
             model: item
         }).el);
