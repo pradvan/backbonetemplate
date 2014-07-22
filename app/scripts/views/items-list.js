@@ -9,9 +9,9 @@
     defaults: {
     },
 
-    t_header: this.JST['app/scripts/templates/header.ejs'],
-    t_footer: this.JST['app/scripts/templates/footer.ejs'],
-    t_new: this.JST['app/scripts/templates/new-item.ejs'],
+    t_header: this.JST['app/scripts/templates/components/header.ejs'],
+    t_footer: this.JST['app/scripts/templates/components/footer.ejs'],
+    t_new: this.JST['app/scripts/templates/components/new-item.ejs'],
     t_item_list: this.JST['app/scripts/templates/item-list.ejs'],
 
     events: {
@@ -85,7 +85,7 @@
 
     renderItem: function (item) {
       console.log('renderItem');
-      $('#item-list-container').append(new BackboneTemplate.Views.Item({
+      $('#item-list-container').append(new BackboneTemplate.Views.Components.Item({
             tagName: 'div',
             model: item
         }).el);

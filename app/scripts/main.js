@@ -5,7 +5,9 @@ var BackboneTemplate = BackboneTemplate || {};
     BackboneTemplate = {
         Models: {},
         Collections: {},
-        Views: {},
+        Views: {
+            Components: {}
+        },
         Routers: {},
 
         collection: null,
