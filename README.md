@@ -1,6 +1,6 @@
 #BackboneTemplate#
-Sample Backbone app that renders items in a collection and allows to add and remove items.
-
+Sample Backbone app that loads JSON data, renders items in a collection, allows adding and removing items.
+ 
 ##Technology stack##
 ###Libraries###
 - Backbone
@@ -11,7 +11,7 @@ Sample Backbone app that renders items in a collection and allows to add and rem
 
 ###Tools###
 Bower for dependency management
-
+ 
 Grunt for automation:
 - JSHint
 - JS & CSS minification
@@ -25,10 +25,10 @@ Grunt for automation:
 - Watch/Live reload
 
 ##Installation##
-Make sure Node.js is installed on your system and that it is in the PATH. 
-Rails and Compass (http://railsinstaller.org/)
-http://railsinstaller.org/Clone project and run the following one at a time:
-
+Make sure Node.js, Rails, and Compass are installed on your system.
+ 
+Clone project and run the following one at a time:
+ 
 1. npm install
 2. bower install
 3. grunt build
