@@ -24,6 +24,9 @@ Grunt for automation:
 - Local Server
 - Watch/Live reload
 
+##Demo##
+http://pocketcodex.com/git/backbonetemplate/
+
 ##Installation##
 Make sure Node.js, Rails, and Compass are installed on your system.
  
